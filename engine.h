@@ -16,12 +16,12 @@ int generate()
     ppush(x,y-1);
     count++;
   }
-  if(maze[x+1][y] && bm[x+1][y] != 1 && x+1<7)
+  if(maze[x+1][y] && bm[x+1][y] != 1 && x+1<10)
   {
     ppush(x+1,y);
     count++;
   }
-  if(maze[x][y+1] && bm[x][y+1] != 1 && y+1<7)
+  if(maze[x][y+1] && bm[x][y+1] != 1 && y+1<10)
   {
     ppush(x,y+1);
     count++;
@@ -47,27 +47,27 @@ void gotophead()
 
 void solve()
 {
- while(pcurrent->x != 6 || pcurrent->y != 6)
+ while(pcurrent->x != 9 || pcurrent->y != 9)
+ // for(int i=0;i<15;i++)
  {
     int foo = generate();
     if(foo == 1)
     {
       gotophead();
+      whereami();
     }
     else
     {
+      bm[pcurrent->x][pcurrent->y] = 1;
+      pcurrent = NULL;
       while(phead->x != jhead->x || phead->y != jhead->y)
       {
-        printf("Stuck here\n");
-        pcurrent = NULL;
+        // printf("Stuck here\n");
         ppop();
       }
       jpop();
       pcurrent = phead;
     }
  }
- // whereami();
- printf("The rat has cleared the maze along the following path:\n");
- print();
- printf("Game Over!\n");
+ gotophead();
 }
