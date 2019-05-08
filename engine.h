@@ -62,7 +62,7 @@ void solve()
       pcurrent = NULL;
       while(phead->x != jhead->x || phead->y != jhead->y)
       {
-        // printf("Stuck here\n");
+        print_p();
         ppop();
       }
       jpop();

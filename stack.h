@@ -71,6 +71,12 @@ void whereami()
   printf("Currently at: (%d,%d)\n",pcurrent->x,pcurrent->y);
 }
 
+void print_p()
+{
+  struct node* ptr;
+  ptr = phead;
+  printf("Currenty at (%d,%d)\n",phead->x,phead->y);
+}
 void print()
 {
   struct node* ptr;
